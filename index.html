@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giphy Image Query</title>
+    <style>
+        #output {
+            width: 80%;
+            height: 200px;
+            resize: both;
+            overflow: auto;
+            word-wrap: break-word;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <label for="query">Enter Query:</label>
+    <input type="text" id="query" />
+    <button id="queryButton" onclick="getImages()">Search</button>
+
+    <hr />
+    <label for="output">Output:</label>
+    <textarea id="output"></textarea>
+
+    <script src="./index.mjs" type="module"></script>
+</body>
+</html>
