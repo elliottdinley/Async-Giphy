@@ -5,26 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giphy Image Query</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            padding: 20px;
+        }
+        #left-section {
+            flex: 1;
+            margin-right: 30px;
+            background-color: #f5f5f5;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        #right-section {
+            flex: 2;
+        }
+        label {
+            margin-bottom: 5px;
+            display: block;
+        }
+        input[type="text"] {
+            width: calc(100% - 18px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: 1s;
+        }
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+        hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
         #output {
-            width: 80%;
-            height: 200px;
-            resize: both;
+            min-height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
             overflow: auto;
             word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+        #output-images {
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        img {
+            max-width: 200px;
+            max-height: 200px;
+            margin: 5px;
         }
     </style>
 </head>
 <body>
-    <label for="query">Enter Query:</label>
-    <input type="text" id="query" />
-    <button id="queryButton" onclick="getImages()">Search</button>
+    <div id="left-section">
+        <label for="query">Enter Query:</label>
+        <input type="text" id="query" onchange="getImages(false)"/>
+        <button id="query-button" onclick="getImages(false)">Search</button>
+        <button id="random-button" onclick="getImages(true)">Random</button>
 
-    <hr />
-    <label for="output">Output:</label>
-    <textarea id="output"></textarea>
+        <hr />
+        <label for="output">Output:</label>
+        <div id="output" contenteditable="true"></div>
+    </div>
+    
+    <div id="right-section">
+        <div id="output-images"></div>
+    </div>
 
-    <script src="./index.mjs" type="module"></script>
+    <script src="./index.js"></script>
 </body>
 </html>
